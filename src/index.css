@@ -3,6 +3,30 @@
   padding: 0;
 }
 
+#container {
+  display: flex;
+}
+
+#container-form {
+  display: flex;
+  justify-content: center;
+  flex-basis: 50%;
+  padding: 1cm;
+}
+
+form {
+  justify-content: space-evenly;
+}
+
+#container-card {
+  background: url('../images/bg-zelda.jpg');
+  min-height: 89.3vh;
+  display: flex;
+  justify-content: center;
+  flex-basis: 50%;
+  padding: 1cm;
+}
+
 form {
   display: flex;
   flex-flow: column nowrap;
@@ -10,5 +34,6 @@ form {
 
 .text-side > label {
   display: flex;
+  margin: 15px 0;
 }
 

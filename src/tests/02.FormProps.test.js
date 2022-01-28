@@ -12,7 +12,7 @@ const defaultProps = {
   cardImage: "url-to-image",
   cardRare: "raro",
   cardTrunfo: true,
-  hasTrunfo: false,
+  // hasTrunfo: false,
   isSaveButtonDisabled: false,
   onInputChange: () => {},
   onSaveButtonClick: () => {},

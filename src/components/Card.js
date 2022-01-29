@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
 
 class Card extends Component {
   // referência: ajuda do colega Paolo Enrico;
@@ -26,23 +25,28 @@ class Card extends Component {
     } = this.props;
 
     return (
-      <section id="container-card">
-
-        <Header title="Pré-visualização" />
-
-        <section id="card">
-
-          <h3 data-testid="name-card">{ cardName }</h3>
-          <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-          <p data-testid="description-card">{ cardDescription }</p>
-          <p data-testid="attr1-card">{`Attr01................... ${cardAttr1}`}</p>
-          <p data-testid="attr2-card">{`Attr02................... ${cardAttr2}`}</p>
-          <p data-testid="attr3-card">{`Attr03................... ${cardAttr3}`}</p>
-          <p data-testid="rare-card">{ cardRare }</p>
-          {/* invocando a função para trazer apenas se o estado for true; Referência: ajuda do colega Paolo Enrico; */}
-          { this.handleTrunfo(cardTrunfo) }
-
-        </section>
+      <section id="card">
+        <div className="card-border">
+          <div className="last-border">
+            <h2 data-testid="name-card">{ cardName }</h2>
+            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+            <p data-testid="description-card" className="desc">{ cardDescription }</p>
+            <div className="attr">
+              <p data-testid="attr1-card">
+                {`Attr01.................................. ${cardAttr1}`}
+              </p>
+              <p data-testid="attr2-card">
+                {`Attr02.................................. ${cardAttr2}`}
+              </p>
+              <p data-testid="attr3-card">
+                {`Attr03.................................. ${cardAttr3}`}
+              </p>
+            </div>
+            <p data-testid="rare-card" className="rare">{ cardRare }</p>
+            {/* invocando a função para trazer apenas se o estado for true; Referência: ajuda do colega Paolo Enrico; */}
+            { this.handleTrunfo(cardTrunfo) }
+          </div>
+        </div>
       </section>
     );
   }

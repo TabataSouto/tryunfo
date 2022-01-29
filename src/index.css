@@ -7,10 +7,6 @@ h1 {
   text-align: center;
 }
 
-h3 {
-  text-align: center;
-}
-
 #container {
   display: flex;
 }
@@ -23,12 +19,9 @@ h3 {
 }
 
 form {
-  justify-content: space-evenly;
-}
-
-form {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-evenly;
 }
 
 .text-side > label {
@@ -37,12 +30,11 @@ form {
 }
 
 #container-card {
-  background: url('../images/bg-zelda.jpg');
-  background-size: cover;
+  background-color: #bea96e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-basis: 50%;
 }
@@ -51,15 +43,66 @@ form {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 60%;
-  min-height: 65%;
-  border-radius: 10px;
+  width: 274px;
+  min-height: 61.5%;
+  border: 5px solid white;
 }
 
-#card > img {
-  width: 60%;
+.card-border {
+  border: 2px solid #bea96e;
+  height: 100%;
 }
 
-#card > h3 {
+.last-border {
+  border: 5px solid #ffffff;
+}
+
+.last-border > h2 {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  /* border: 1px solid black; */
+  border-bottom: none;
+  height: 35px;
+  padding: 0 10px;
+}
+
+.last-border > img {
   text-align: center;
+  /* background-color: #bea96e; */
+  border: 1px solid #bea96e;
+  width: 256px;
+  height: 150px;
+  padding: 1px;
+  font-size: 0;
+}
+
+.desc {
+  font-size: 12px;
+  text-align: justify;
+  padding: 2%;
+  height: 100px;
+  margin: 2px 5px;
+}
+
+.attr {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.attr > p {
+  background-color: #bea96e;
+  margin: 2px 5px;
+  padding: 1% 2%;
+  letter-spacing: 1.8px;
+  font-size: 13px;
+}
+
+.rare {
+  text-align: right;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 800;
 }

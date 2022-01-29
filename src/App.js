@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Header from './components/Header';
 
 class App extends React.Component {
   constructor() {
@@ -66,17 +67,19 @@ class App extends React.Component {
           />
         </section>
 
-        <Card
-          cardName={ name }
-          cardDescription={ desc }
-          cardAttr1={ attr1 }
-          cardAttr2={ attr2 }
-          cardAttr3={ attr3 }
-          cardImage={ image }
-          cardRare={ rare }
-          cardTrunfo={ trunfo }
-        />
-
+        <section id="container-card">
+          <Header title="Pré-visualização" />
+          <Card
+            cardName={ name }
+            cardDescription={ desc }
+            cardAttr1={ attr1 }
+            cardAttr2={ attr2 }
+            cardAttr3={ attr3 }
+            cardImage={ image }
+            cardRare={ rare }
+            cardTrunfo={ trunfo }
+          />
+        </section>
       </section>
     );
   }

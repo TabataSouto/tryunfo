@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 
 class Card extends Component {
+  // referência: ajuda do colega Paolo Enrico;
+  // função para trazer o texto super trunfo apenas se o check for true;
+  handleTrunfo(cardTrunfo) {
+    if (cardTrunfo) {
+      return (
+        <p data-testid="trunfo-card">Super Trunfo</p>
+      );
+    }
+  }
+
   render() {
     const {
       cardName,
@@ -29,9 +39,8 @@ class Card extends Component {
           <p data-testid="attr2-card">{`Attr02................... ${cardAttr2}`}</p>
           <p data-testid="attr3-card">{`Attr03................... ${cardAttr3}`}</p>
           <p data-testid="rare-card">{ cardRare }</p>
-          <p data-testid="trunfo-card">
-            { cardTrunfo === true ? 'Super Trunfo' : cardTrunfo }
-          </p>
+          {/* invocando a função para trazer apenas se o estado for true; Referência: ajuda do colega Paolo Enrico; */}
+          { this.handleTrunfo(cardTrunfo) }
 
         </section>
       </section>

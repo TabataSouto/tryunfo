@@ -66,9 +66,16 @@ class App extends React.Component {
           />
         </section>
 
-        <section id="container-card">
-          <Card />
-        </section>
+        <Card
+          cardName={ name }
+          cardDescription={ desc }
+          cardAttr1={ attr1 }
+          cardAttr2={ attr2 }
+          cardAttr3={ attr3 }
+          cardImage={ image }
+          cardRare={ rare }
+          cardTrunfo={ trunfo }
+        />
 
       </section>
     );

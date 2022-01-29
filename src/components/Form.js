@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Header from './Header';
 import Input from './Input';
 
 class Form extends Component {
@@ -21,6 +22,10 @@ class Form extends Component {
 
     return (
       <form>
+
+        <Header
+          title="Adicionar nova carta"
+        />
 
         <Input
           name="name"
@@ -111,7 +116,7 @@ class Form extends Component {
             checked={ cardTrunfo }
             onChange={ onInputChange }
           />
-          Super Zelda Tryunfo
+          Super Tryunfo
         </label>
 
         <button
@@ -128,19 +133,20 @@ class Form extends Component {
   }
 }
 
+const { string, bool, func } = PropTypes;
 Form.propTypes = {
-  cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
-  isSaveButtonDisabled: PropTypes.bool.isRequired,
-  onInputChange: PropTypes.func.isRequired,
-  onSaveButtonClick: PropTypes.func.isRequired,
+  cardName: string.isRequired,
+  cardDescription: string.isRequired,
+  cardAttr1: string.isRequired,
+  cardAttr2: string.isRequired,
+  cardAttr3: string.isRequired,
+  cardImage: string.isRequired,
+  cardRare: string.isRequired,
+  cardTrunfo: bool.isRequired,
+  // hasTrunfo: bool.isRequired,
+  isSaveButtonDisabled: bool.isRequired,
+  onInputChange: func.isRequired,
+  onSaveButtonClick: func.isRequired,
 };
 
 export default Form;

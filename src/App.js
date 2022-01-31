@@ -25,22 +25,11 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
   }
 
-  // handleToUpdateState() {
-  //   this.setState({
-  //     form: {
-  //       name: '',
-  //       desc: '',
-  //       attr1: '0',
-  //       attr2: '0',
-  //       attr3: '0',
-  //       image: '',
-  //       rare: 'normal',
-  //       trunfo: false,
-  //     },
-  //     saveButton: true,
-  //   });
-  // }
+  handleHasTrunfo() {
+    console.log('Olá');
+  }
 
+  // função que muda o estado de acordo com as condições;
   onInputChange({ target: { name, type, checked, value } }) {
     this.setState((prevState) => ({
       //
@@ -77,6 +66,7 @@ class App extends React.Component {
     });
   }
 
+  // função que salva as informações do estado em um novo objeto ao clicar em salvar, e redefine os valores do estado para o inicial;
   onSaveButtonClick() {
     const {
       form:
@@ -107,7 +97,7 @@ class App extends React.Component {
     this.setState((prevState) => ({
       saveInfosState: [...prevState.saveInfosState, objectPrevState],
     }), () => {
-      // redefinimos todos os campos para o estado inicial após clicar no botão de salvar, e isso deve ser feito depois de salvar as informações dentro do array, do contrário nosso array será salvo com o valor das chaves igual ao estado inicial;
+      // redefinimos todos os campos para o estado inicial após clicar no botão de salvar, e isso deve ser feito depois de salvar as informações dentro do array, do contrário nos so array será salvo com o valor das chaves igual ao estado inicial;
       this.setState({
         form: {
           name: '',
@@ -138,7 +128,7 @@ class App extends React.Component {
       },
       saveButton,
     } = this.state;
-    const { onInputChange, onSaveButtonClick } = this;
+    const { onInputChange, onSaveButtonClick, handleHasTrunfo } = this;
 
     return (
       <section id="container">
@@ -153,6 +143,7 @@ class App extends React.Component {
             cardImage={ image }
             cardRare={ rare }
             cardTrunfo={ trunfo }
+            hasTrunfo={ handleHasTrunfo }
             onInputChange={ onInputChange }
             isSaveButtonDisabled={ saveButton }
             onSaveButtonClick={ onSaveButtonClick }

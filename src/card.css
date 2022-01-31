@@ -1,12 +1,11 @@
 #container-card {
+  align-items: center;
   background: url('../images/bg-zelda.jpg');
   background-size: cover;
-  min-height: 100vh;
-  display: flex;
+  flex-basis: 50%;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
-  flex-basis: 50%;
+  min-height: 100vh;  
 }
 
 #card {
@@ -24,34 +23,34 @@
 
 .card-border {
   border: 2px solid #bea96e;
-  padding: 0.3%;
   height: 100%;
+  padding: 0.3%;
 }
 
 .last-border {
   border: 5px solid #bea96e;
-  margin: 1px 1px 1px 1px;
   height: 97%;
+  margin: 1px 1px 1px 1px;
 }
 
 .last-border > h2 {
-  color: white;
-  display: flex;
-  justify-content: right;
   align-items: center;
   border-bottom: none;
+  color: white;
+  display: flex;
   height: 35px;
+  justify-content: right;
   padding: 0 10px;
 }
 
 .last-border > img {
-  margin: 0 5px;
-  text-align: center;
   border: 1px solid #bea96e;
-  width: 242px;
-  height: 150px;
-  padding: 1px;
   font-size: 0;
+  height: 150px;
+  margin: 0 5px;
+  padding: 1px;
+  text-align: center;
+  width: 242px;
 }
 
 .desc {

@@ -1,7 +1,7 @@
 #container-form {
   display: flex;
-  justify-content: center;
   flex-basis: 50%;
+  justify-content: center;
   padding: 1cm;
 }
 

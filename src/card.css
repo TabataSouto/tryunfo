@@ -10,9 +10,9 @@
 
 #card {
   align-self: center;
-  background-image: url('../images/bg-triforce.png'),
-  linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
-  background-size: 2.5rem, cover;
+  background-image: url('../images/bg-triforce.png') , 
+    linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
+  background-size: 2.5rem , cover;
   min-height: 62%;
   padding: 0.5%;
   width: 274px;
@@ -20,14 +20,14 @@
 
 .card-border {
   border: 2px solid #bea96e;
-  padding: 0.3%;
   height: 98.5%;
+  padding: 0.3%;
 }
 
 .last-border {
   border: 5px solid #bea96e;
   height: 97%;
-  margin: 1px 1px 1px 1px;
+  margin: 1px;
 }
 
 .last-border > h2 {

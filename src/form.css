@@ -1,4 +1,4 @@
-#container-form {
+.container-form {
   display: flex;
   flex-basis: 50%;
   justify-content: center;

@@ -1,4 +1,4 @@
-#container-card {
+.container-card {
   background: url('../images/bg-zelda.jpg');
   background-size: cover;
   display: flex;
@@ -8,10 +8,9 @@
   min-height: 100vh;
 }
 
-#card {
+.card {
   align-self: center;
-  background-image: url('../images/bg-triforce.png') , 
-    linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
+  background-image: url('../images/bg-triforce.png') , linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
   background-size: 2.5rem , cover;
   min-height: 62%;
   padding: 0.5%;

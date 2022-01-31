@@ -3,11 +3,6 @@
   padding: 0;
 }
 
-/* Estilização que deixa form e card um do lado do outro */
-/* h1 {
-  text-align: center;
-} */
-
 #container {
   display: flex;
 }

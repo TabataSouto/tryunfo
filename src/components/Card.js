@@ -25,7 +25,7 @@ class Card extends Component {
     } = this.props;
 
     return (
-      <section id="card">
+      <section className="card">
         <div className="card-border">
           <div className="last-border">
             <h2 data-testid="name-card">{ cardName }</h2>

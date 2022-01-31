@@ -81,7 +81,6 @@ class App extends React.Component {
         image,
         rare,
         trunfo,
-        hasTrunfo,
       },
     } = this.state;
 
@@ -94,7 +93,6 @@ class App extends React.Component {
       image,
       rare,
       trunfo,
-      hasTrunfo,
     };
 
     // let { hasTrunfo } = this.state;
@@ -141,7 +139,7 @@ class App extends React.Component {
     return (
       <section id="container">
 
-        <section id="container-form">
+        <section className="container-form">
           <Form
             cardName={ name }
             cardDescription={ desc }
@@ -158,7 +156,7 @@ class App extends React.Component {
           />
         </section>
 
-        <section id="container-card">
+        <section className="container-card">
           <Header title="Pré-visualização" />
           <Card
             cardName={ name }

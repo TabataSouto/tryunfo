@@ -9,16 +9,16 @@ class App extends React.Component {
     this.state = {
       name: '',
       desc: '',
-      attr1: '',
-      attr2: '',
-      attr3: '',
+      attr1: '0',
+      attr2: '0',
+      attr3: '0',
       image: '',
-      rare: '',
+      rare: 'normal',
       trunfo: false,
       saveButton: true,
+      saveInfosState: [],
     };
 
-    this.isSaveButtonDisabled = this.isSaveButtonDisabled.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
@@ -59,16 +59,6 @@ class App extends React.Component {
   }
 
   onSaveButtonClick() {
-    // this.state({
-    //   saveButton: false,
-    // });
-  }
-
-  isSaveButtonDisabled() {
-    // console.log('Olá');
-    this.setState({
-      saveButton: false,
-    });
   }
 
   render() {

@@ -7,7 +7,7 @@ class Card extends Component {
   handleTrunfo(cardTrunfo) {
     if (cardTrunfo) {
       return (
-        <p data-testid="trunfo-card">Super Trunfo</p>
+        <p data-testid="trunfo-card" className="super-trunfo">Super Trunfo</p>
       );
     }
   }
@@ -33,13 +33,13 @@ class Card extends Component {
             <p data-testid="description-card" className="desc">{ cardDescription }</p>
             <div className="attr">
               <p data-testid="attr1-card">
-                {`Attr01.................................. ${cardAttr1}`}
+                {`Attr01................................ ${cardAttr1}`}
               </p>
               <p data-testid="attr2-card">
-                {`Attr02.................................. ${cardAttr2}`}
+                {`Attr02................................ ${cardAttr2}`}
               </p>
               <p data-testid="attr3-card">
-                {`Attr03.................................. ${cardAttr3}`}
+                {`Attr03................................ ${cardAttr3}`}
               </p>
             </div>
             <p data-testid="rare-card" className="rare">{ cardRare }</p>

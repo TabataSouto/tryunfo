@@ -128,7 +128,7 @@ class App extends React.Component {
       },
       saveButton,
     } = this.state;
-    const { onInputChange, onSaveButtonClick, handleHasTrunfo } = this;
+    const { onInputChange, onSaveButtonClick } = this;
 
     return (
       <section id="container">
@@ -143,7 +143,7 @@ class App extends React.Component {
             cardImage={ image }
             cardRare={ rare }
             cardTrunfo={ trunfo }
-            hasTrunfo={ handleHasTrunfo }
+            // hasTrunfo={ handleHasTrunfo }
             onInputChange={ onInputChange }
             isSaveButtonDisabled={ saveButton }
             onSaveButtonClick={ onSaveButtonClick }

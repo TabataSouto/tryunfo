@@ -11,10 +11,10 @@
 #card {
   background-image: url('../images/bg-triforce.png'),
   linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
-  background-position: center center;
-    background-position-x: center;
-    background-position-y: center;
-    background-size: 2.5rem, cover;
+    background-position: center center;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 2.5rem, cover;
   display: flex;
   flex-direction: column;
   width: 274px;

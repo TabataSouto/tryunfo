@@ -16,6 +16,7 @@ class App extends React.Component {
         image: '',
         rare: 'normal',
         trunfo: false,
+        hasTrunfo: false,
       },
       saveButton: true,
       saveInfosState: [],
@@ -25,6 +26,7 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
   }
 
+  // verificar se o array de saveInfosState já possui algum com a chave trunfo: true;
   handleHasTrunfo() {
     console.log('Olá');
   }
@@ -79,6 +81,7 @@ class App extends React.Component {
         image,
         rare,
         trunfo,
+        hasTrunfo,
       },
     } = this.state;
 
@@ -91,7 +94,11 @@ class App extends React.Component {
       image,
       rare,
       trunfo,
+      hasTrunfo,
     };
+
+    // let { hasTrunfo } = this.state;
+    // if (cardTrunfo) hasTrunfo = true;
 
     // pegamos o estado anterior (prevState) e armazenamos dentro do nosso arrei declarado no estado mais as informações que são salvas no objeto;
     this.setState((prevState) => ({
@@ -125,6 +132,7 @@ class App extends React.Component {
         image,
         rare,
         trunfo,
+        hasTrunfo,
       },
       saveButton,
     } = this.state;
@@ -143,7 +151,7 @@ class App extends React.Component {
             cardImage={ image }
             cardRare={ rare }
             cardTrunfo={ trunfo }
-            // hasTrunfo={ handleHasTrunfo }
+            hasTrunfo={ hasTrunfo }
             onInputChange={ onInputChange }
             isSaveButtonDisabled={ saveButton }
             onSaveButtonClick={ onSaveButtonClick }

@@ -4,17 +4,10 @@
 }
 
 /* Estilização que deixa form e card um do lado do outro */
-h1 {
+/* h1 {
   text-align: center;
-}
+} */
 
 #container {
   display: flex;
-}
-
-#container-form {
-  display: flex;
-  justify-content: center;
-  flex-basis: 50%;
-  padding: 1cm;
 }

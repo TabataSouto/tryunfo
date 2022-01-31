@@ -1,0 +1,11 @@
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+
+.text-side > label {
+  display: flex;
+  margin: 15px 0;
+}

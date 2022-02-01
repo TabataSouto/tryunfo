@@ -1,0 +1,14 @@
+.card-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.card-list > div {
+  height: 100%;
+}
+
+.super-trunfo {
+  margin-bottom: 2%;
+}

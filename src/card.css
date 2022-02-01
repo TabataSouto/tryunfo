@@ -8,11 +8,18 @@
   min-height: 100vh;
 }
 
+.container-card h1 {
+  color: #f4efe5;
+  font-size: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 8px black;
+}
+
 .card {
   align-self: center;
   background-image: url('../images/bg-triforce.png') , linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
   background-size: 2.5rem , cover;
-  min-height: 62%;
+  height: 46.5%;
   padding: 0.5%;
   width: 274px;
 }
@@ -54,7 +61,7 @@
   background-color: rgba(255, 255, 255, 0.103);
   color: white;
   display: flex;
-  font-size: 12px;
+  font-size: 15px;
   height: 100px;
   margin: 2px 5px;
   padding: 1% 3%;
@@ -70,8 +77,8 @@
 
 .attr > p {
   background-color: #bea96e;
-  font-size: 13px;
-  letter-spacing: 1.8px;
+  font-size: 14px;
+  letter-spacing: 1.7px;
   margin: 2px 5px;
   padding: 1% 2%;
   text-align: center;
@@ -82,6 +89,7 @@
   font-size: 10px;
   font-weight: 800;
   margin-right: 10px;
+  padding: 5px 0;
   text-align: right;
   text-transform: uppercase;
 }
@@ -89,4 +97,5 @@
 .super-trunfo {
   color: white;
   margin-left: 10px;
+  margin-top: -12px;
 }

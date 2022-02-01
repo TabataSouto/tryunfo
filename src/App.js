@@ -22,6 +22,7 @@ class App extends React.Component {
       saveInfosState: [],
     };
 
+    this.onDeleteCard = this.onDeleteCard.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
@@ -63,6 +64,19 @@ class App extends React.Component {
     });
   }
 
+  // Função para deletar o card;
+  onDeleteCard({ target: { name } }) {
+    // const card = target.name;
+    const { saveInfosState } = this.state;
+
+    const findCard = saveInfosState
+      .filter((card) => name !== card.name);
+
+    this.setState({
+      saveInfosState: findCard,
+    });
+  }
+
   // função que salva as informações do estado em um novo objeto ao clicar em salvar, e redefine os valores do estado para o inicial;
   onSaveButtonClick() {
     const {
@@ -97,6 +111,8 @@ class App extends React.Component {
       saveInfosState: [...prevState.saveInfosState, objectPrevState],
     }), () => {
       // redefinimos todos os campos para o estado inicial após clicar no botão de salvar, e isso deve ser feito depois de salvar as informações dentro do array, do contrário nos so array será salvo com o valor das chaves igual ao estado inicial;
+      const { form: { trunfo: trunfo1 } } = this.state;
+      console.log(trunfo1);
       this.setState({
         form: {
           name: '',
@@ -108,7 +124,7 @@ class App extends React.Component {
           rare: 'normal',
           trunfo: false,
           // o trunfo (aparentemente) pega o valor que está setado no no estado (linha 84) e não o novo valor que está sendo setado (linha 114);
-          hasTrunfo: trunfo,
+          hasTrunfo: trunfo1,
         },
         saveButton: true,
       });
@@ -132,7 +148,7 @@ class App extends React.Component {
       saveButton,
     } = this.state;
 
-    const { onInputChange, onSaveButtonClick } = this;
+    const { onInputChange, onSaveButtonClick, onDeleteCard } = this;
 
     return (
       <section className="main">
@@ -170,19 +186,33 @@ class App extends React.Component {
           </section>
         </section>
 
-        { saveInfosState.map((element) => (
-          <Card
-            key={ element.name }
-            cardName={ element.name }
-            cardDescription={ element.desc }
-            cardAttr1={ element.attr1 }
-            cardAttr2={ element.attr2 }
-            cardAttr3={ element.attr3 }
-            cardImage={ element.image }
-            cardRare={ element.rare }
-            cardTrunfo={ element.trunfo }
-          />
-        ))}
+        <div className="separator" />
+
+        <section className="card-list">
+          <h2> Todas as Cartas </h2>
+          { saveInfosState.map((element) => (
+            <div key={ element.name }>
+              <Card
+                cardName={ element.name }
+                cardDescription={ element.desc }
+                cardAttr1={ element.attr1 }
+                cardAttr2={ element.attr2 }
+                cardAttr3={ element.attr3 }
+                cardImage={ element.image }
+                cardRare={ element.rare }
+                cardTrunfo={ element.trunfo }
+              />
+              <button
+                name={ element.name }
+                type="button"
+                data-testid="delete-button"
+                onClick={ onDeleteCard }
+              >
+                Excluir
+              </button>
+            </div>
+          ))}
+        </section>
       </section>
     );
   }

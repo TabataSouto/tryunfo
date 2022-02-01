@@ -81,6 +81,7 @@ class App extends React.Component {
         image,
         rare,
         trunfo,
+        hasTrunfo,
       },
     } = this.state;
 
@@ -93,10 +94,8 @@ class App extends React.Component {
       image,
       rare,
       trunfo,
+      hasTrunfo,
     };
-
-    // let { hasTrunfo } = this.state;
-    // if (cardTrunfo) hasTrunfo = true;
 
     // pegamos o estado anterior (prevState) e armazenamos dentro do nosso arrei declarado no estado mais as informações que são salvas no objeto;
     this.setState((prevState) => ({
@@ -113,6 +112,8 @@ class App extends React.Component {
           image: '',
           rare: 'normal',
           trunfo: false,
+          // o trunfo (aparentemente) pega o valor que está setado no no estado (linha 84) e não o novo valor que está sendo setado (linha 114);
+          hasTrunfo: trunfo,
         },
         saveButton: true,
       });

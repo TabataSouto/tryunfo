@@ -26,11 +26,6 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
   }
 
-  // verificar se o array de saveInfosState já possui algum com a chave trunfo: true;
-  handleHasTrunfo() {
-    console.log('Olá');
-  }
-
   // função que muda o estado de acordo com as condições;
   onInputChange({ target: { name, type, checked, value } }) {
     this.setState((prevState) => ({
@@ -133,43 +128,61 @@ class App extends React.Component {
         trunfo,
         hasTrunfo,
       },
+      saveInfosState,
       saveButton,
     } = this.state;
+
     const { onInputChange, onSaveButtonClick } = this;
 
     return (
-      <section id="container">
+      <section className="main">
 
-        <section className="container-form">
-          <Form
-            cardName={ name }
-            cardDescription={ desc }
-            cardAttr1={ attr1 }
-            cardAttr2={ attr2 }
-            cardAttr3={ attr3 }
-            cardImage={ image }
-            cardRare={ rare }
-            cardTrunfo={ trunfo }
-            hasTrunfo={ hasTrunfo }
-            onInputChange={ onInputChange }
-            isSaveButtonDisabled={ saveButton }
-            onSaveButtonClick={ onSaveButtonClick }
-          />
+        <section id="container">
+          <section className="container-form">
+            <Form
+              cardName={ name }
+              cardDescription={ desc }
+              cardAttr1={ attr1 }
+              cardAttr2={ attr2 }
+              cardAttr3={ attr3 }
+              cardImage={ image }
+              cardRare={ rare }
+              cardTrunfo={ trunfo }
+              hasTrunfo={ hasTrunfo }
+              onInputChange={ onInputChange }
+              isSaveButtonDisabled={ saveButton }
+              onSaveButtonClick={ onSaveButtonClick }
+            />
+          </section>
+
+          <section className="container-card">
+            <Header title="Pré-visualização" />
+            <Card
+              cardName={ name }
+              cardDescription={ desc }
+              cardAttr1={ attr1 }
+              cardAttr2={ attr2 }
+              cardAttr3={ attr3 }
+              cardImage={ image }
+              cardRare={ rare }
+              cardTrunfo={ trunfo }
+            />
+          </section>
         </section>
 
-        <section className="container-card">
-          <Header title="Pré-visualização" />
+        { saveInfosState.map((element) => (
           <Card
-            cardName={ name }
-            cardDescription={ desc }
-            cardAttr1={ attr1 }
-            cardAttr2={ attr2 }
-            cardAttr3={ attr3 }
-            cardImage={ image }
-            cardRare={ rare }
-            cardTrunfo={ trunfo }
+            key={ element.name }
+            cardName={ element.name }
+            cardDescription={ element.desc }
+            cardAttr1={ element.attr1 }
+            cardAttr2={ element.attr2 }
+            cardAttr3={ element.attr3 }
+            cardImage={ element.image }
+            cardRare={ element.rare }
+            cardTrunfo={ element.trunfo }
           />
-        </section>
+        ))}
       </section>
     );
   }

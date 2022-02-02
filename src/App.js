@@ -31,13 +31,23 @@ class App extends React.Component {
   onInputChange({ target: { name, type, checked, value } }) {
     this.setState((prevState) => ({
       //
-      form: { ...prevState.form, [name]: type === 'checkbox' ? checked : value },
+      form: { ...prevState.form,
+        [name]: type === 'checkbox' ? checked : value,
+      },
     }));
 
     this.setState((state) => {
       // desestruturação das chaves necessárias do estado;
-      const { name: nameState, desc, image, rare } = state.form;
-      const { attr1, attr2, attr3 } = state.form;
+      const {
+        name:
+        nameState,
+        desc,
+        image,
+        rare,
+        attr1,
+        attr2,
+        attr3,
+      } = state.form;
 
       // criação de arrays para utilização de hofs;
       const arrString = [nameState, desc, image, rare];
@@ -66,53 +76,53 @@ class App extends React.Component {
 
   // Função para deletar o card;
   onDeleteCard({ target: { name } }) {
-    // const card = target.name;
     const { saveInfosState } = this.state;
 
     const findCard = saveInfosState
       .filter((card) => name !== card.name);
 
+    // const teste = saveInfosState
+    //   .some(({ trunfo }) => trunfo);
+    // console.log(teste);
+
     this.setState({
       saveInfosState: findCard,
+    }, () => {
+      const { saveInfosState: info } = this.state;
+      const save = info.some((card) => card.hasTrunfo === true);
+
+      this.setState({
+        form: {
+          name: '',
+          desc: '',
+          attr1: '0',
+          attr2: '0',
+          attr3: '0',
+          image: '',
+          rare: 'normal',
+          trunfo: false,
+          hasTrunfo: save,
+        },
+      });
     });
   }
 
   // função que salva as informações do estado em um novo objeto ao clicar em salvar, e redefine os valores do estado para o inicial;
   onSaveButtonClick() {
-    const {
-      form:
-      {
-        name,
-        desc,
-        attr1,
-        attr2,
-        attr3,
-        image,
-        rare,
-        trunfo,
-        hasTrunfo,
-      },
+    const { form,
     } = this.state;
 
-    const objectPrevState = {
-      name,
-      desc,
-      attr1,
-      attr2,
-      attr3,
-      image,
-      rare,
-      trunfo,
-      hasTrunfo,
-    };
+    const objectPrevState = { ...form, hasTrunfo: form.trunfo };
+    console.log(objectPrevState);
 
     // pegamos o estado anterior (prevState) e armazenamos dentro do nosso arrei declarado no estado mais as informações que são salvas no objeto;
     this.setState((prevState) => ({
       saveInfosState: [...prevState.saveInfosState, objectPrevState],
     }), () => {
       // redefinimos todos os campos para o estado inicial após clicar no botão de salvar, e isso deve ser feito depois de salvar as informações dentro do array, do contrário nos so array será salvo com o valor das chaves igual ao estado inicial;
-      const { form: { trunfo: trunfo1 } } = this.state;
-      console.log(trunfo1);
+      const { saveInfosState } = this.state;
+      const save = saveInfosState.some((card) => card.hasTrunfo === true);
+      // console.log(save);
       this.setState({
         form: {
           name: '',
@@ -124,7 +134,7 @@ class App extends React.Component {
           rare: 'normal',
           trunfo: false,
           // o trunfo (aparentemente) pega o valor que está setado no no estado (linha 84) e não o novo valor que está sendo setado (linha 114);
-          hasTrunfo: trunfo1,
+          hasTrunfo: save,
         },
         saveButton: true,
       });

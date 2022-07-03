@@ -1,0 +1,118 @@
+:root {
+
+  --color-placeholder: #d3d6da;
+
+  --color-text-all: #444955;
+
+  --color-background-all: #fafafa;
+
+  --color-background-input: white;
+
+  --color-border-input: #444955;
+
+  --color-gold: #bea96e;
+}
+
+/* estilizações globais */
+* {
+  box-sizing: border-box;
+  color: var(--color-text-all);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+body {
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* estilização container principal da página */
+.container {
+  background: var(--color-background-all);
+}
+
+/* estilização global component form */
+.container-form {
+  display: flex;
+  height: 100vh;
+}
+
+.form-component {
+  align-items: center;
+  display: flex;
+  flex-basis: 50%;
+  justify-content: center;
+}
+
+/* estilização global component card */
+.card-component {
+  align-items: center;
+  background-attachment: fixed;
+  background-image: url('./images/bg-zelda.jpg');
+  background-size: contain;
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+
+.card-component h1 {
+  color: white;
+}
+
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1cm;
+  padding: 2cm;
+}
+
+/* estilização separador entre form e card para lista de cards */
+.separator {
+  align-self: center;
+  background-image: url('./images/bg-triforce.png') , linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
+  background-size: 2.5rem , cover;
+  display: flex;
+  flex-direction: row;
+  height: 10px;
+  width: 100%;
+}
+
+/* estilização lista de cards */
+.all-cards {
+  flex-basis: 30%;
+}
+
+.card-play {
+  display: flex;
+  flex-basis: 65%;
+  flex-wrap: wrap;
+  gap: 0.7cm;
+  justify-content: space-between;
+}
+
+/* estilização botão para excluir card */
+.card-play > div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-play > div > button {
+  background-color: white;
+  border: 1px solid var(--color-gold);
+  border-radius: 5px;
+  font-size: 15px;
+  margin-top: 15px;
+  padding: 10px 25px;
+  width: 120px;
+}

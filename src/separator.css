@@ -1,9 +1,0 @@
-.separator {
-  align-self: center;
-  background-image: url('../images/bg-triforce.png') , linear-gradient(to bottom, #224138 0%, #224138 50%, #224138 100%);
-  background-size: 2.5rem , cover;
-  display: flex;
-  flex-direction: row;
-  height: 10px;
-  width: 100%;
-}

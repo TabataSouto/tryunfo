@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { value, name, onChange, title, id, testId, type } = this.props;
+    const { value, name, onChange, title, id, testId, type, placeholder } = this.props;
 
     return (
       <label htmlFor={ id }>
@@ -14,6 +14,7 @@ class Input extends Component {
           type={ type }
           value={ value }
           onChange={ onChange }
+          placeholder={ placeholder }
         />
       </label>
     );
@@ -31,6 +32,8 @@ Input.propTypes = {
     .isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  placeholder: PropTypes.string,
 };
 
 export default Input;

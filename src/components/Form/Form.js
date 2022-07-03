@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
-import Input from './Input';
+import Header from '../Header/Header';
+import Input from '../Input';
+import './Form.css';
 
 class Form extends Component {
   render() {
@@ -21,7 +22,7 @@ class Form extends Component {
     } = this.props;
 
     return (
-      <form>
+      <section className="container-form-inputs">
 
         <Header
           title="Adicionar nova carta"
@@ -35,6 +36,7 @@ class Form extends Component {
           type="text"
           value={ cardName }
           onChange={ onInputChange }
+          placeholder="Nome da carta"
         />
 
         <label htmlFor="desc">
@@ -50,7 +52,7 @@ class Form extends Component {
           />
         </label>
 
-        <div className="text-side">
+        <div className="attributes">
           <Input
             name="attr1"
             id="arrr-1"
@@ -80,7 +82,7 @@ class Form extends Component {
           />
         </div>
 
-        <div className="text-side">
+        <div className="image-file">
           <Input
             name="image"
             id="card-img"
@@ -89,10 +91,11 @@ class Form extends Component {
             type="text"
             value={ cardImage }
             onChange={ onInputChange }
+            placeholder="imagem ilustrativa da carta"
           />
         </div>
 
-        <div className="text-side">
+        <div className="rarity">
           <label htmlFor="card-rare">
             <p> Raridade </p>
             <select
@@ -113,21 +116,24 @@ class Form extends Component {
           hasTrunfo
             ? <p>Você já tem um Super Trunfo em seu baralho</p>
             : (
-              <label htmlFor="card-trunfo">
-                <input
-                  data-testid="trunfo-input"
-                  name="trunfo"
-                  id="card-trunfo"
-                  type="checkbox"
-                  checked={ cardTrunfo }
-                  onChange={ onInputChange }
-                />
-                Super Trunfo
-              </label>
+              <div className="super-trunfo">
+                <label htmlFor="card-trunfo">
+                  <input
+                    data-testid="trunfo-input"
+                    name="trunfo"
+                    id="card-trunfo"
+                    type="checkbox"
+                    checked={ cardTrunfo }
+                    onChange={ onInputChange }
+                  />
+                  Super Trunfo
+                </label>
+              </div>
             )
         }
 
         <button
+          className="save-card"
           data-testid="save-button"
           type="button"
           disabled={ isSaveButtonDisabled }
@@ -136,7 +142,7 @@ class Form extends Component {
           Salvar
         </button>
 
-      </form>
+      </section>
     );
   }
 }

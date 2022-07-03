@@ -1,0 +1,110 @@
+/* estilizações gerais */
+input, textarea, select {
+  border: none;
+  font-weight: 100;
+  outline: none;
+  padding: 0 10px;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+input::placeholder {
+  color: var(--color-placeholder);
+}
+
+/* estilização container inputs */
+.container-form-inputs {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+/* estilização inputs de attr 1, 2, 3 */
+.attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0.5cm;
+}
+
+.attributes label {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.attributes label input {
+  border: 1px solid var(--color-border-input);
+  border-radius: 3px;
+  height: 0.9cm;
+  width: 100%;
+}
+
+/* estilização input da imagem */
+.image-file {
+  margin-bottom: 0.5cm;
+}
+
+.image-file label {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.image-file label input {
+  border: 1px solid var(--color-border-input);
+  border-radius: 3px;
+  height: 0.9cm;
+  width: 100%;
+}
+
+/* estilizalão input name e descrição */
+.container-form-inputs > label:nth-child( 2 ) input {
+  border-bottom: 1px solid var(--color-border-input);
+  height: 1cm;
+  margin-bottom: 0.5cm;
+  width: 100%;
+}
+
+
+.container-form-inputs > label textarea {
+  border-bottom: 1px solid var(--color-border-input);
+  height: 1.8cm;
+  margin-bottom: 0.5cm;
+  width: 100%;
+}
+
+/* estilização input raridade */
+.rarity label select {
+  background: var(--color-background-input);
+  border-bottom: 1px solid var(--color-border-input);
+  height: 1cm;
+  margin-bottom: 0.5cm;
+  width: 100%;
+}
+
+/* estilização seleção super trunfo */
+.super-trunfo {
+  display: flex;
+  margin-bottom: 0.5cm;
+}
+
+.super-trunfo label {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* estilização botão de salvar */
+.save-card {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 10px;
+  width: 20%;
+}

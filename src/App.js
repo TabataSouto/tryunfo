@@ -1,7 +1,10 @@
 import React from 'react';
-import Form from './components/Form';
-import Card from './components/Card';
-import Header from './components/Header';
+import Form from './components/Form/Form';
+import Card from './components/Card/Card';
+import Header from './components/Header/Header';
+import './App.css';
+
+import characterModel from './data';
 
 class App extends React.Component {
   constructor() {
@@ -10,16 +13,16 @@ class App extends React.Component {
       form: {
         name: '',
         desc: '',
-        attr1: '0',
-        attr2: '0',
-        attr3: '0',
+        attr1: '',
+        attr2: '',
+        attr3: '',
         image: '',
         rare: 'normal',
         trunfo: false,
         hasTrunfo: false,
       },
       saveButton: true,
-      saveInfosState: [],
+      saveInfosState: characterModel,
     };
 
     this.onDeleteCard = this.onDeleteCard.bind(this);
@@ -108,18 +111,17 @@ class App extends React.Component {
   }
 
   // função que salva as informações do estado em um novo objeto ao clicar em salvar, e redefine os valores do estado para o inicial;
-  onSaveButtonClick() {
-    const { form,
-    } = this.state;
-
+  onSaveButtonClick(event) {
+    event.preventDefault();
+    const { form } = this.state;
     const objectPrevState = { ...form, hasTrunfo: form.trunfo };
-    console.log(objectPrevState);
 
-    // pegamos o estado anterior (prevState) e armazenamos dentro do nosso arrei declarado no estado mais as informações que são salvas no objeto;
+    // pegamos o estado anterior (prevState) e armazenamos dentro do nosso array declarado no estado mais as informações que são salvas no objeto;
     this.setState((prevState) => ({
       saveInfosState: [...prevState.saveInfosState, objectPrevState],
     }), () => {
       // redefinimos todos os campos para o estado inicial após clicar no botão de salvar, e isso deve ser feito depois de salvar as informações dentro do array, do contrário nos so array será salvo com o valor das chaves igual ao estado inicial;
+      // verifica se o array de objetos possui alguma carta trufo através do hasTrunfo;0
       const { saveInfosState } = this.state;
       const save = saveInfosState.some((card) => card.hasTrunfo === true);
       // console.log(save);
@@ -161,10 +163,10 @@ class App extends React.Component {
     const { onInputChange, onSaveButtonClick, onDeleteCard } = this;
 
     return (
-      <section className="main">
+      <section className="container">
 
-        <section id="container">
-          <section className="container-form">
+        <section className="container-form">
+          <div className="form-component">
             <Form
               cardName={ name }
               cardDescription={ desc }
@@ -179,9 +181,9 @@ class App extends React.Component {
               isSaveButtonDisabled={ saveButton }
               onSaveButtonClick={ onSaveButtonClick }
             />
-          </section>
+          </div>
 
-          <section className="container-card">
+          <div className="card-component">
             <Header title="Pré-visualização" />
             <Card
               cardName={ name }
@@ -193,35 +195,39 @@ class App extends React.Component {
               cardRare={ rare }
               cardTrunfo={ trunfo }
             />
-          </section>
+          </div>
         </section>
 
         <div className="separator" />
 
-        <section className="card-list">
-          <h2> Todas as Cartas </h2>
-          { saveInfosState.map((element) => (
-            <div key={ element.name }>
-              <Card
-                cardName={ element.name }
-                cardDescription={ element.desc }
-                cardAttr1={ element.attr1 }
-                cardAttr2={ element.attr2 }
-                cardAttr3={ element.attr3 }
-                cardImage={ element.image }
-                cardRare={ element.rare }
-                cardTrunfo={ element.trunfo }
-              />
-              <button
-                name={ element.name }
-                type="button"
-                data-testid="delete-button"
-                onClick={ onDeleteCard }
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
+        <section className="container-card">
+          <div className="all-cards">
+            <h2> Todas as Cartas </h2>
+          </div>
+          <div className="card-play">
+            { saveInfosState.map((element) => (
+              <div key={ element.name }>
+                <Card
+                  cardName={ element.name }
+                  cardDescription={ element.desc }
+                  cardAttr1={ element.attr1 }
+                  cardAttr2={ element.attr2 }
+                  cardAttr3={ element.attr3 }
+                  cardImage={ element.image }
+                  cardRare={ element.rare }
+                  cardTrunfo={ element.trunfo }
+                />
+                <button
+                  name={ element.name }
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ onDeleteCard }
+                >
+                  Excluir
+                </button>
+              </div>
+            ))}
+          </div>
         </section>
       </section>
     );

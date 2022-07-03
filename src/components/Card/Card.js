@@ -54,6 +54,7 @@ class Card extends Component {
 }
 
 const { string, bool } = PropTypes;
+
 Card.propTypes = {
   cardName: string.isRequired,
   cardDescription: string.isRequired,

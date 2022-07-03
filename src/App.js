@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form/Form';
 import Card from './components/Card/Card';
 import Header from './components/Header/Header';
+import Input from './components/Input';
 import './App.css';
 
 import characterModel from './data';
@@ -23,11 +24,19 @@ class App extends React.Component {
       },
       saveButton: true,
       saveInfosState: characterModel,
+      filterCard: '',
     };
 
     this.onDeleteCard = this.onDeleteCard.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.onInputChangeFilter = this.onInputChangeFilter.bind(this);
+  }
+
+  onInputChangeFilter({ target: { value } }) {
+    this.setState({
+      filterCard: value,
+    });
   }
 
   // função que muda o estado de acordo com as condições;
@@ -146,21 +155,12 @@ class App extends React.Component {
   render() {
     const {
       form: {
-        name,
-        desc,
-        attr1,
-        attr2,
-        attr3,
-        image,
-        rare,
-        trunfo,
-        hasTrunfo,
+        name, desc, attr1, attr2, attr3, image, rare, trunfo, hasTrunfo,
       },
-      saveInfosState,
-      saveButton,
+      saveInfosState, saveButton, filterCard,
     } = this.state;
 
-    const { onInputChange, onSaveButtonClick, onDeleteCard } = this;
+    const { onInputChange, onSaveButtonClick, onDeleteCard, onInputChangeFilter } = this;
 
     return (
       <section className="container">
@@ -203,30 +203,41 @@ class App extends React.Component {
         <section className="container-card">
           <div className="all-cards">
             <h2> Todas as Cartas </h2>
+            <Input
+              id="filter-card"
+              title="Filtros de busca"
+              name="filterCard"
+              testId="name-filter"
+              type="text"
+              value={ filterCard }
+              onChange={ onInputChangeFilter }
+            />
           </div>
           <div className="card-play">
-            { saveInfosState.map((element) => (
-              <div key={ element.name }>
-                <Card
-                  cardName={ element.name }
-                  cardDescription={ element.desc }
-                  cardAttr1={ element.attr1 }
-                  cardAttr2={ element.attr2 }
-                  cardAttr3={ element.attr3 }
-                  cardImage={ element.image }
-                  cardRare={ element.rare }
-                  cardTrunfo={ element.trunfo }
-                />
-                <button
-                  name={ element.name }
-                  type="button"
-                  data-testid="delete-button"
-                  onClick={ onDeleteCard }
-                >
-                  Excluir
-                </button>
-              </div>
-            ))}
+            { saveInfosState
+              .filter((card) => card.name.toLowerCase().includes(filterCard))
+              .map((element) => (
+                <div key={ element.name }>
+                  <Card
+                    cardName={ element.name }
+                    cardDescription={ element.desc }
+                    cardAttr1={ element.attr1 }
+                    cardAttr2={ element.attr2 }
+                    cardAttr3={ element.attr3 }
+                    cardImage={ element.image }
+                    cardRare={ element.rare }
+                    cardTrunfo={ element.trunfo }
+                  />
+                  <button
+                    name={ element.name }
+                    type="button"
+                    data-testid="delete-button"
+                    onClick={ onDeleteCard }
+                  >
+                    Excluir
+                  </button>
+                </div>
+              ))}
           </div>
         </section>
       </section>
